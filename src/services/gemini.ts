@@ -51,5 +51,7 @@ export const generateLocationArtwork = async (
   }
 };
 
-// Note: Static map proxy endpoint is available at /api/staticmap if needed
-// Currently unused as the scan API fetches satellite imagery server-side
+// Get static map URL via server-side proxy (hides API key)
+export const getStaticMapUrl = (lat: number, lng: number): string => {
+  return `/api/staticmap?lat=${lat}&lng=${lng}&zoom=19&size=800x800`;
+};

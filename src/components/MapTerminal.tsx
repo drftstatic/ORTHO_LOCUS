@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { setOptions, importLibrary } from '@googlemaps/js-api-loader';
-import { initiateScan, generateLocationArtwork } from '../services/gemini';
+import { initiateScan, generateLocationArtwork, getStaticMapUrl } from '../services/gemini';
 import type { ArtworkStyle } from '../services/gemini';
 
 const mapOptions: google.maps.MapOptions = {
@@ -32,6 +32,7 @@ export const MapTerminal: React.FC = () => {
   const [mapInstance, setMapInstance] = useState<google.maps.Map | null>(null);
   const [coords, setCoords] = useState({ lat: 40.7128, lng: -74.006 });
   const [viewState, setViewState] = useState<ViewState>('explore');
+  const [snapshotUrl, setSnapshotUrl] = useState<string | null>(null);
   const [scanResult, setScanResult] = useState<string | null>(null);
   const [artworkUrl, setArtworkUrl] = useState<string | null>(null);
   const [artworkStyle, setArtworkStyle] = useState<ArtworkStyle>('PLANAR');
@@ -101,8 +102,9 @@ export const MapTerminal: React.FC = () => {
       const lat = center.lat();
       const lng = center.lng();
 
-      // The scan API fetches satellite imagery server-side for Gemini analysis
-      // We don't need a separate static map for the UI background
+      // Use server-side proxy for static map (hides API key)
+      setSnapshotUrl(getStaticMapUrl(lat, lng));
+
       const result = await initiateScan(lat, lng);
       setScanResult(result);
     }
@@ -131,6 +133,7 @@ export const MapTerminal: React.FC = () => {
   const handleClose = useCallback(() => {
     setViewState('explore');
     setScanResult(null);
+    setSnapshotUrl(null);
     setArtworkUrl(null);
     mapInstance?.setOptions({ gestureHandling: 'greedy' });
   }, [mapInstance]);
@@ -213,7 +216,10 @@ export const MapTerminal: React.FC = () => {
 
       {/* Analysis Panel */}
       <div className="analysis">
-        <div className="analysis__image" />
+        <div
+          className="analysis__image"
+          style={{ backgroundImage: snapshotUrl ? `url(${snapshotUrl})` : 'none' }}
+        />
         <div className="analysis__content">
           <div className="analysis__header">Orbital Analysis</div>
 
