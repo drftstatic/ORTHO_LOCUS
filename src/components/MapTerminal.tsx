@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { setOptions, importLibrary } from '@googlemaps/js-api-loader';
-import { initiateScan, generateLocationArtwork } from '../services/gemini';
+import { initiateScan, generateLocationArtwork, getStaticMapUrl } from '../services/gemini';
 import type { ArtworkStyle } from '../services/gemini';
 
 const mapOptions: google.maps.MapOptions = {
@@ -102,10 +102,10 @@ export const MapTerminal: React.FC = () => {
       const lat = center.lat();
       const lng = center.lng();
 
-      const staticMapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=19&size=800x800&maptype=satellite&key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`;
-      setSnapshotUrl(staticMapUrl);
+      // Use server-side proxy for static map (hides API key)
+      setSnapshotUrl(getStaticMapUrl(lat, lng));
 
-      const result = await initiateScan(lat, lng, staticMapUrl);
+      const result = await initiateScan(lat, lng);
       setScanResult(result);
     }
   }, [mapInstance, viewState]);

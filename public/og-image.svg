@@ -1,0 +1,35 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0F172A"/>
+  
+  <!-- Grid Pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1E293B" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Central Crosshair -->
+  <path d="M600 0V630" stroke="#1E293B" stroke-width="2"/>
+  <path d="M0 315H1200" stroke="#1E293B" stroke-width="2"/>
+  
+  <!-- Main Text -->
+  <text x="600" y="280" font-family="monospace" font-size="80" font-weight="bold" fill="#F8FAFC" text-anchor="middle" letter-spacing="4">ORTHO_LOCUS</text>
+  
+  <!-- Subtext -->
+  <text x="600" y="360" font-family="monospace" font-size="32" fill="#38BDF8" text-anchor="middle" letter-spacing="2">LOCATION-INTELLIGENCE ART INSTALLATION</text>
+  
+  <!-- Technical Elements -->
+  <rect x="50" y="50" width="1100" height="530" stroke="#38BDF8" stroke-width="2" stroke-opacity="0.5"/>
+  <path d="M50 100H100" stroke="#38BDF8" stroke-width="4"/>
+  <path d="M50 580H100" stroke="#38BDF8" stroke-width="4"/>
+  <path d="M1150 100H1100" stroke="#38BDF8" stroke-width="4"/>
+  <path d="M1150 580H1100" stroke="#38BDF8" stroke-width="4"/>
+  
+  <!-- Corner Coordinates -->
+  <text x="70" y="80" font-family="monospace" font-size="16" fill="#64748B">LAT: 34.0522 N</text>
+  <text x="70" y="560" font-family="monospace" font-size="16" fill="#64748B">LON: 118.2437 W</text>
+  <text x="1050" y="80" font-family="monospace" font-size="16" fill="#64748B" text-anchor="end">SYS: READY</text>
+  <text x="1050" y="560" font-family="monospace" font-size="16" fill="#64748B" text-anchor="end">V2.0.0</text>
+</svg>
