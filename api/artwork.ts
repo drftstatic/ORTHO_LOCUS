@@ -42,7 +42,7 @@ export default async function handler(req: Request) {
     }
 
     const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp-image-generation" });
+    const model = genAI.getGenerativeModel({ model: "gemini-3-pro-image-preview" });
 
     let prompt = '';
 

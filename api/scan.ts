@@ -33,7 +33,7 @@ export default async function handler(req: Request) {
     }
 
     const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-preview-05-20" });
+    const model = genAI.getGenerativeModel({ model: "gemini-3-pro-preview" });
 
     // Fetch satellite image server-side
     const staticMapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=19&size=600x800&maptype=satellite&key=${GOOGLE_MAPS_SERVER_KEY}`;
