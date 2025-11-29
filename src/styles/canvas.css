@@ -351,6 +351,7 @@ body {
 
 .analysis__image {
   flex: 1;
+  background: linear-gradient(135deg, var(--void-deep) 0%, var(--void-surface) 50%, var(--void) 100%);
   background-size: cover;
   background-position: center;
   position: relative;

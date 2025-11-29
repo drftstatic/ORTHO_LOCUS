@@ -31,7 +31,13 @@ export default async function handler(req: Request) {
     const response = await fetch(staticMapUrl);
 
     if (!response.ok) {
-      return new Response(JSON.stringify({ error: 'Failed to fetch map' }), {
+      const errorText = await response.text();
+      console.error("Google Maps Static API error:", response.status, errorText);
+      return new Response(JSON.stringify({
+        error: 'Failed to fetch map',
+        status: response.status,
+        details: errorText.substring(0, 200) // Truncate for safety
+      }), {
         status: response.status,
         headers: { 'Content-Type': 'application/json' },
       });
