@@ -25,6 +25,14 @@ ORTHO_LOCUS leverages:
 
 The kiosk allows users to select coordinates on a map and generates precise, geometrically accurate planar drawings including blueprints, elevations, and axonometric views.
 
+### Dual-Path Generation (New in v2.0)
+ORTHO_LOCUS now features **Dual-Path Generation**, allowing users to explore two distinct artistic interpretations of the same location, powered by **Nano Banana Pro** (`gemini-3-pro-image-preview`):
+
+1.  **PLANAR VIEW**: A high-precision, technical architectural blueprint. This mode focuses on structure, infrastructure, and orthographic accuracy.
+2.  **PLEIN AIR**: An artistic, impressionist masterpiece. This mode captures the "spirit of place," focusing on light, atmosphere, and the unique biome of the location.
+
+Both modes are **grounded** in the actual geospatial data of the selected coordinates, ensuring that the generated artwork—whether technical or artistic—reflects the reality of the physical world.
+
 ---
 
 ## Technical Stack

@@ -5,8 +5,8 @@ const genAI = new GoogleGenerativeAI(API_KEY);
 
 export const initiateScan = async (lat: number, lng: number, _imageUrl: string): Promise<string> => {
     try {
-        // UPGRADE: Using the newly released Gemini 3.0 Pro model
-        const model = genAI.getGenerativeModel({ model: "gemini-3.0-pro" });
+        // UPGRADE: Using the newly released Gemini 3 Pro model
+        const model = genAI.getGenerativeModel({ model: "gemini-3-pro-preview" });
 
         // Fetch the image via our local proxy to bypass CORS and add necessary headers
         // The proxy at /api/maps forwards to maps.googleapis.com
