@@ -1,0 +1,30 @@
+:root {
+  --color-bg: #001B3A;
+  --color-line: #FFFFFF;
+  --color-accent: #FFB000;
+  --color-text: #FFFFFF;
+  --font-mono: 'Roboto Mono', 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  margin: 0;
+  overflow: hidden;
+  /* Kiosk mode */
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 176, 0, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 20px rgba(255, 176, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 176, 0, 0);
+  }
+}
